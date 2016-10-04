@@ -1,12 +1,12 @@
 
 <acronym title="Carico">
 	<a href="carico.php">
-		<img src="img/view.png" alt="Carico" />
+		<img src="img/add.png" alt="Carico" />
 	</a>
 </acronym>
 <acronym title="Scarico">
 	<a href="scarico.php">
-		<img src="img/new.png" alt="Scarico" />
+		<img src="img/del.png" alt="Scarico" />
 	</a>
 </acronym>
 <acronym title="Ricerca">
@@ -16,7 +16,7 @@
 </acronym>
 <acronym title="Movimenti">
 	<a href="movimenti.php" >
-		<img src="img/stat.png" alt="movimenti" />
+		<img src="img/view.png" alt="movimenti" />
 	</a>
 </acronym>
 <acronym title="Impostazioni">

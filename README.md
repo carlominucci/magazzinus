@@ -1,2 +1,4 @@
-# magazzinus
-# magazzinus
+# Magazzinus
+
+Un semplice gestionale per il magazzino.
+
