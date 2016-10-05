@@ -15,7 +15,6 @@ if(isset($_POST['desc']) && isset($_POST['loc']) && isset($_POST['quantity']) &&
     			die('Invalid query: ' . mysql_error());
 		}
 	}
-	echo $query;
 	mysql_close($link);
 	
 }	
@@ -24,7 +23,7 @@ if(isset($_POST['desc']) && isset($_POST['loc']) && isset($_POST['quantity']) &&
 <html lang="it"> 
 	<head> 
 		<meta charset=utf-8> 
-		<!-- <meta HTTP-EQUIV="Refresh" content="<?php echo rand(1,5); ?>; url=index.php"> -->
+		<meta HTTP-EQUIV="Refresh" content="<?php echo rand(1,5); ?>; url=index.php">
 		<title><?php echo $title; ?></title></head>
 		<link rel="stylesheet" type="text/css" media="screen" href="style.css" />
 	</head>
