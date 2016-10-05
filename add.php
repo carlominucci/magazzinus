@@ -18,7 +18,7 @@
 				<td>Codice</td>
 				<td>
 					<acronym title="Inserisci l'eventuale codice del bene.">
-						<input type="text" name"cod" size="15" />
+						<input type="text" name="cod" size="15" />
 					</acronym>
 				</td>
 			</tr>

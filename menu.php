@@ -4,11 +4,6 @@
 		<img src="img/add.png" alt="Carico" />
 	</a>
 </acronym>
-<acronym title="Scarico">
-	<a href="scarico.php">
-		<img src="img/del.png" alt="Scarico" />
-	</a>
-</acronym>
 <acronym title="Ricerca">
 	<a href="search.php" >
 		<img src="img/search.png" alt="Ricerca" />

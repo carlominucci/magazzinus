@@ -5,6 +5,7 @@
 						<th>Ubicazione</th>
 						<th>Quantità</th>
 						<th>Unità di misura</th>
+						<th>&nbsp;</th>
 					</tr>
 
 <?php
@@ -20,6 +21,7 @@ if (!$link){
 	while ($row = mysql_fetch_array($result, MYSQL_NUM)){
 		echo "<tr>\n";
 		echo "<td>" . $row[1] . "</td><td>" . $row[2] . "</td><td>" . $row[3] . "</td><td>" . $row[4] . "</td><td>" . $row[5] . "</td>\n";
+		echo "<td><a href=\"#\"><img src=\"img/del_small.png\" alt=\"scarica\" /></a></td>\n";
 		echo "</tr>\n";
 	}
 }

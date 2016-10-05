@@ -6,7 +6,8 @@ if(isset($_POST['desc']) && isset($_POST['loc']) && isset($_POST['quantity']) &&
 	$loc=addslashes(strip_tags($_POST['loc']));
 	$quantity=addslashes(strip_tags($_POST['quantity']));	
 	$unit=addslashes(strip_tags($_POST['unit']));	
-	$query="INSERT INTO asset VALUES('', '$code', '$desc', '$loc', '$quantity', '$unit', CURRENT_TIMESTAMP)";
+	$query="INSERT INTO asset VALUES('', '$cod', '$desc', '$loc', '$quantity', '$unit', CURRENT_TIMESTAMP)";
+	//echo $query;
 	if (!$link) {
    		die('Could not connect: ' . mysql_error());
 	}else{
