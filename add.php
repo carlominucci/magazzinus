@@ -11,7 +11,7 @@
 			Carica bene	
 			<?php include "menu.php"; ?>
 		</div>
-<form action="add.php" method="post">
+<form action="update.php" method="post">
 	<p class="tabella">
 		<table>
 			<tr>
@@ -26,7 +26,7 @@
 				<td>Descrizione / Nome</td>
 				<td>
 					<acronym title="Inserisci il nome del bene.">
-						<input type="text" name="name" size="40" />
+						<input type="text" name="desc" size="40" />
 					</acronym>
 				</td>
 			</tr>
