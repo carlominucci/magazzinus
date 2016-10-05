@@ -1,6 +1,6 @@
 
 <acronym title="Carico">
-	<a href="carico.php">
+	<a href="add.php">
 		<img src="img/add.png" alt="Carico" />
 	</a>
 </acronym>
