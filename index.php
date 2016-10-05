@@ -20,6 +20,6 @@ if(file_exists("config.php")){
 		Gestione Magazzino 
 		<?php include("menu.php"); ?>
 	</div>
-
+	<?php include("view.php"); ?>
 </body>
 </html>
