@@ -23,6 +23,7 @@ if (!$link) {
 }
 
 while ($row = mysql_fetch_array($result, MYSQL_NUM)){
+	$id=$row[0];
 	$cod=$row[1];
 	$desc=$row[2];
 	$loc=$row[3];
@@ -32,6 +33,7 @@ mysql_close($link);
 ?>
 
 <form action="delete.php" method="post">
+<input type="hidden" name="id" value="<?php echo $id; ?>">
 	<p class="tabella">
 		<table>
 			<tr>
