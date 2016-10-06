@@ -2,15 +2,29 @@
 <?php
 if ( ! get_magic_quotes_gpc() ) {
   $_POST['add'] = addslashes(strip_tags($_POST['add']));
-  $_POST['nomelab'] = addslashes(strip_tags($_POST['nomelab']));
-  $_POST['nometecnico'] = addslashes(strip_tags($_POST['nometecnico']));
-  $_GET['dellab'] = addslashes(strip_tags($_GET['dellab']));
-  $_GET['deltecnico'] = addslashes(strip_tags($_GET['deltecnico']));
+  $_POST['location'] = addslashes(strip_tags($_POST['location']));
+  $_POST['user'] = addslashes(strip_tags($_POST['user']));
   $_GET['enable'] = addslashes(strip_tags($_GET['enable']));
   $_GET['disable'] = addslashes(strip_tags($_GET['disable']));
-  $_GET['blocconote'] = addslashes(strip_tags($_GET['blocconote']));
+  $_GET['action'] = addslashes(strip_tags($_GET['action']));
 }
 
+if($_GET[enable]){
+	$query="UPDATE user SET state = TRUE WHERE id =" . $_GET[enable];
+	$result = mysql_query($query);
+}elseif($_GET[disable]){
+	$query="UPDATE user SET state = FALSE WHERE id =" . $_GET[disable];
+	$result = mysql_query($query);
+}
+
+if($_GET[action] == "adduser"){
+	if($_POST[user] == ""){
+		$error = "<p class=\"error\">Non puoi lasciare vuoto il campo del nome...</p>";
+	}else{
+		$query="INSERT INTO user VALUES('', '" . $_POST[user] . "', '" . $_POST[location] . "', '0')";
+		$result = mysql_query($query);
+	}
+}
 
 ?>
 <!DOCTYPE html> 
@@ -61,8 +75,11 @@ while($rowuser = mysql_fetch_array($resultuser)){
 ?>
 							<tr>
 								<td>
-									<form action="admin.php" method="post">
+									<form action="admin.php?action=adduser" method="post">
 										<input type="text" name="user" />
+								</td>
+								<td>
+									<input type="text" name="location" />
 								</td>
 								<td>
 										<acronym title="Aggiungi">
@@ -79,8 +96,6 @@ while($rowuser = mysql_fetch_array($resultuser)){
 				Legenda:<br />
 				<img src="img/enable.png" alt="Enable" /> Abilitato. Clicka per disabilitarlo.<br />
 				<img src="img/disable.png" alt="Disable" /> Disabilitato. Clicka per abilitarlo.<br />
-				<img src="img/del.png" alt="Cancella" /> Elimina definitivamente.<br />
-				<img src="img/add.png" alt="Aggiungi" /> Aggiungi campo.
 			</p>
 </td></tr></table>
 </body>
