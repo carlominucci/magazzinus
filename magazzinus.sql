@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Ott 05, 2016 alle 13:14
+-- Generation Time: Ott 06, 2016 alle 13:25
 -- Versione del server: 5.5.52-0+deb8u1
 -- PHP Version: 5.6.24-0+deb8u1
 
@@ -34,7 +34,7 @@ CREATE TABLE IF NOT EXISTS `asset` (
   `quantity` int(255) NOT NULL,
   `unit` varchar(255) NOT NULL,
   `date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -58,7 +58,8 @@ CREATE TABLE IF NOT EXISTS `get` (
 CREATE TABLE IF NOT EXISTS `user` (
 `id` int(255) NOT NULL,
   `name` varchar(255) NOT NULL,
-  `location` varchar(255) NOT NULL
+  `location` varchar(255) NOT NULL,
+  `state` tinyint(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -91,7 +92,7 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `asset`
 --
 ALTER TABLE `asset`
-MODIFY `id` int(255) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=8;
+MODIFY `id` int(255) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=14;
 --
 -- AUTO_INCREMENT for table `get`
 --
