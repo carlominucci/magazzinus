@@ -1,4 +1,9 @@
 
+<acronym title="Home">
+        <a href="index.php">
+                <img src="img/home.png" alt="Carico" />
+        </a>
+</acronym>
 <acronym title="Carico">
 	<a href="add.php">
 		<img src="img/add.png" alt="Carico" />

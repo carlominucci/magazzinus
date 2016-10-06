@@ -8,29 +8,48 @@
 	</head>
 <body>
 		<div class="titolo">
-			Carica bene	
+			Scarica bene	
 			<?php include "menu.php"; ?>
 		</div>
-<?php echo $_GET[id]; ?>
+<?php
+if (!$link) {
+   	die('Could not connect: ' . mysql_error());
+}else{
+	$query="SELECT * FROM asset WHERE id = '" . $_GET[id] . "'";
+	$result = mysql_query($query);
+	if (!$result) {
+    		die('Invalid query: ' . mysql_error());
+	}
+}
+
+while ($row = mysql_fetch_array($result, MYSQL_NUM)){
+	$cod=$row[1];
+	$desc=$row[2];
+	$loc=$row[3];
+	$unit=$row[5];
+}
+mysql_close($link);
+?>
+
 <form action="delete.php" method="post">
 	<p class="tabella">
 		<table>
 			<tr>
 				<td>Codice</td>
 				<td>
-codice
+<?php echo $cod; ?>
 				</td>
 			</tr>
 			<tr>
 				<td>Descrizione / Nome</td>
 				<td>
-Descrizione
+<?php echo $desc; ?>
 				</td>
 			</tr>
 			<tr>
 				<td>Ubicazione</td>
 				<td>
-Ubicazione
+<?php echo $loc; ?>
 				</td>
 			</tr>
 			<tr>
@@ -44,7 +63,7 @@ Ubicazione
 			<tr>
 				<td>Unità di misura</td>
 				<td>
-Unità di misura
+<?php echo $unit; ?>
 				</td>
 			</tr>
                         <tr>
