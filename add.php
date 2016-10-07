@@ -1,4 +1,18 @@
 <?php include "config.php"; ?>
+<?php
+if(isset($_GET[id])){
+	$query = "SELECT * FROM asset WHERE id = '" . $_GET[id] . "'";
+	$result = mysql_query($query);
+	while ($row = mysql_fetch_array($result, MYSQL_NUM)){
+		$id = $row[0];
+		$cod = $row[1];
+		$descr = $row[2];
+		$loc = $row[3];
+		$quantity = $row[4];
+		$unit = $row[5];
+	}
+}
+?>
 <!DOCTYPE html> 
 <html lang="it"> 
 	<head> 
@@ -12,13 +26,14 @@
 			<?php include "menu.php"; ?>
 		</div>
 <form action="update.php" method="post">
+<input type="hidden" name="id" value="<?php echo $id; ?>" />
 	<p class="tabella">
 		<table>
 			<tr>
 				<td>Codice</td>
 				<td>
 					<acronym title="Inserisci l'eventuale codice del bene.">
-						<input type="text" name="cod" size="15" />
+						<input type="text" name="cod" value="<?php echo $cod; ?>" size="15" />
 					</acronym>
 				</td>
 			</tr>
@@ -26,7 +41,7 @@
 				<td>Descrizione / Nome</td>
 				<td>
 					<acronym title="Inserisci il nome del bene.">
-						<input type="text" name="desc" size="40" />
+						<input type="text" name="descr" value="<?php echo $descr; ?>" size="40" />
 					</acronym>
 				</td>
 			</tr>
@@ -34,7 +49,7 @@
 				<td>Ubicazione</td>
 				<td>
 					<acronym title="Inserisci l'ubicazione del bene.">
-						<input type="text" name="loc" size="40" />
+						<input type="text" name="loc" value="<?php echo $loc; ?>" size="40" />
 					</acronym>
 				</td>
 			</tr>
@@ -42,7 +57,7 @@
 				<td>Quantità</td>
 				<td>
 					<acronym title="Inserisci la quantità numerica del bene">
-						<input type="text" name="quantity" size="10" />
+						<input type="text" name="quantity" value="<?php echo $quantity; ?>" size="10" />
 					<acronym>
 				</td>
 			</tr>
@@ -50,7 +65,7 @@
 				<td>Unità di misura</td>
 				<td>
 					<acronym title="Inserisci l'unità di misura">
-						<input type="text" name="unit" size="40"/>
+						<input type="text" name="unit" value="<?php echo $unit; ?>"size="40"/>
 					</acronym>
 				</td>
 			</tr>

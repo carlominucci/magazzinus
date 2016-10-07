@@ -1,13 +1,14 @@
 <?php
 include "config.php";
-if(isset($_POST['desc']) && isset($_POST['loc']) && isset($_POST['quantity']) && isset($_POST['unit'])){
+if(isset($_POST['descr']) && isset($_POST['loc']) && isset($_POST['quantity']) && isset($_POST['unit'])){
+	$id=addslashes(strip_tags($_POST['id']));
 	$cod=addslashes(strip_tags($_POST['cod']));
-	$desc=addslashes(strip_tags($_POST['desc']));
+	$desc=addslashes(strip_tags($_POST['descr']));
 	$loc=addslashes(strip_tags($_POST['loc']));
 	$quantity=addslashes(strip_tags($_POST['quantity']));	
 	$unit=addslashes(strip_tags($_POST['unit']));	
-	$query="INSERT INTO asset VALUES('', '$cod', '$desc', '$loc', '$quantity', '$unit', CURRENT_TIMESTAMP)";
-	//echo $query;
+	$query="UPDATE asset SET cod = '$cod', descr = '$descr', loc = '$loc', quantity = '$quantity', unit = '$unit') WHERE id = '$id'";
+	echo $query;
 	if (!$link) {
    		die('Could not connect: ' . mysql_error());
 	}else{

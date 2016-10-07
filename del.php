@@ -25,11 +25,10 @@ if (!$link) {
 while ($row = mysql_fetch_array($result, MYSQL_NUM)){
 	$id=$row[0];
 	$cod=$row[1];
-	$desc=$row[2];
+	$descr=$row[2];
 	$loc=$row[3];
 	$unit=$row[5];
 }
-mysql_close($link);
 ?>
 
 <form action="delete.php" method="post">
@@ -45,7 +44,7 @@ mysql_close($link);
 			<tr>
 				<td>Descrizione / Nome</td>
 				<td>
-<?php echo $desc; ?>
+<?php echo $descr; ?>
 				</td>
 			</tr>
 			<tr>
@@ -72,8 +71,13 @@ mysql_close($link);
                                 <td>Nominativo</td>
                                 <td>
 					<select name="name">
-						<option value="$id">ciao</option>
-						<option value="$id">arrivederci</option>
+<?php
+$query = "SELECT id, name, location FROM user WHERE state = '1' ORDER BY name";
+$result = mysql_query($query);
+while ($row = mysql_fetch_array($result, MYSQL_NUM)){
+	echo "<option value=\"" . $row[0] . "\">" . $row[1] . " - " . $row[2] . "</option>\n"; 
+}
+?>
 					</select>
                                 </td>
                         </tr>
