@@ -10,10 +10,10 @@ if ( ! get_magic_quotes_gpc() ) {
 }
 
 if($_GET[enable]){
-	$query="UPDATE user SET state = TRUE WHERE id =" . $_GET[enable];
+	$query="UPDATE user SET state = '1' WHERE id = '" . $_GET[enable] . "'";
 	$result = mysql_query($query);
 }elseif($_GET[disable]){
-	$query="UPDATE user SET state = FALSE WHERE id =" . $_GET[disable];
+	$query="UPDATE user SET state = '0' WHERE id = '" . $_GET[disable] . "'";
 	$result = mysql_query($query);
 }
 
@@ -59,7 +59,7 @@ $resultuser = mysql_query($queryuser);
 while($rowuser = mysql_fetch_array($resultuser)){
 	echo "<tr><td>" . $rowuser[1] . "</td>";
 	echo "<td>" . $rowuser[2] . "</td>";
-	if($rowuser[2] == 1){
+	if($rowuser[3] == "1"){
 		echo "	<td>
 				<acronym title=\"Utente abilitato. Clicka per disabilitarlo\">
 					<a href=\"admin.php?disable=" . $rowuser[0] . "\">
@@ -67,7 +67,7 @@ while($rowuser = mysql_fetch_array($resultuser)){
 				</acronym>
 			</td>
 		</tr>";
-	}elseif($rowuser[2] == 0){
+	}elseif($rowuser[3] == "0"){
 		echo "<td><acronym title=\"Utente disabilitato. Clicka per abilitarlo\"><a href=\"admin.php?enable=" . $rowuser[0] . "\"><img src=\"img/disable.png\" alt=\"Abilita\" /></acronym></td></tr>";
 	}
 	//echo "<td><a href=\"admin.php?deluser=" . $rowuser[0] . "\"><img src=\"img/del.png\" alt=\"cancella\" /></a></td></tr>";
