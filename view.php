@@ -1,3 +1,6 @@
+<?php
+$debug=0;
+?>
 <table class="tabella">
 					<tr>
 						<th>Codice</th>
@@ -22,8 +25,10 @@ if (!$link){
 		echo "<tr>\n";
 		echo "<td>" . $row[1] . "</td><td>" . $row[2] . "</td><td>" . $row[3] . "</td><td>" . $row[4] . "</td><td>" . $row[5] . "</td>\n";
 		echo "<td>	<a href=\"del.php?id=$row[0]\"><img src=\"img/del_small.png\" alt=\"scarica\" /></a>
-				<a href=\"add.php?id=$row[0]\"><img src=\"img/add_small.png\" alt=\"carica\" /></a>
-				<a href=\"remove.php?id=$row[0]\"><img src=\"img/remove.png\" alt=\"elimina voce definitivamente\" </a></td>\n";
+				<a href=\"add.php?id=$row[0]\"><img src=\"img/add_small.png\" alt=\"carica\" /></a>";
+		if($debug == 1){
+			echo "<a href=\"remove.php?id=$row[0]\"><img src=\"img/remove.png\" alt=\"elimina voce definitivamente\" </a></td>\n";
+		}
 		echo "</tr>\n";
 	}
 }
