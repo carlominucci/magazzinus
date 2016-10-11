@@ -1,5 +1,5 @@
 <?php
-$debug=0;
+$debug=1;
 ?>
 <table class="tabella">
 					<tr>

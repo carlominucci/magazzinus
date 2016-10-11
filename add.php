@@ -1,4 +1,18 @@
 <?php include "config.php"; ?>
+<?php
+if(isset($_GET[id])){
+	$query = "SELECT * FROM asset WHERE id = '" . $_GET[id] . "'";
+	$result = mysql_query($query);
+	while ($row = mysql_fetch_array($result, MYSQL_NUM)){
+		$id = $row[0];
+		$cod = $row[1];
+		$descr = $row[2];
+		$loc = $row[3];
+		$quantity = $row[4];
+		$unit = $row[5];
+	}
+}
+?>
 <!DOCTYPE html> 
 <html lang="it"> 
 	<head> 
@@ -11,7 +25,13 @@
 			Carica bene	
 			<?php include "menu.php"; ?>
 		</div>
-<form action="new.php" method="post">
+<?php
+if(isset($_GET[id])){
+	?><form action="update.php" method="post"><?php
+}else{
+	?><form action="new.php" method="post"><?php
+}?>
+<input type="hidden" name="id" value="<?php echo $id; ?>" />
 	<p class="tabella">
 		<table>
 			<tr>
