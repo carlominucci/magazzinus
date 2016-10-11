@@ -1,9 +1,11 @@
 <?php
 include "config.php";
-echo $_POST[id];
-echo $_POST[quantity];
-if(isset($_GET['id'])){
-	//$query="DELETE FROM asset WHERE id = '" . $_GET[id] . "'";
+$id_asset = addslashes(strip_tags($_POST['id']));
+$quantity = addslashes(strip_tags($_POST['quantity']));
+$id_user= addslashes(strip_tags($_POST['name']));
+	$query_update = "UPDATE asset SET quantity = quantity - $quantity WHERE id = $id_asset";
+	$query = "INSERT INTO get VALUES('', '$id_asset', '$quantity', '$id_user', now())";
+	echo $query;
 	if (!$link) {
    		die('Could not connect: ' . mysql_error());
 	}else{
@@ -11,10 +13,14 @@ if(isset($_GET['id'])){
 		if (!$result) {
     			die('Invalid query: ' . mysql_error());
 		}
+
+		$result = mysql_query($query_update);
+                if (!$result) {
+                        die('Invalid query: ' . mysql_error());
+                }
 	}
 	mysql_close($link);
 	
-}	
 ?>
 <!DOCTYPE html> 
 <html lang="it"> 
