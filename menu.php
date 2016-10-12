@@ -15,7 +15,7 @@
 	</a>
 </acronym>
 <acronym title="Movimenti">
-	<a href="movimenti.php" >
+	<a href="report.php" >
 		<img src="img/view.png" alt="movimenti" />
 	</a>
 </acronym>
