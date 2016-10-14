@@ -17,7 +17,7 @@ $query="SELECT * FROM asset ORDER BY id";
 if (!$link){
 	die('Could not connect: ' . mysql_error());
 }else{
-	$query="SELECT * FROM asset ORDER BY id";
+	$query="SELECT * FROM asset ORDER BY descr";
 	$result = mysql_query($query);
 	if (!$result) {
    			die('Invalid query: ' . mysql_error());

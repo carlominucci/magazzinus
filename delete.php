@@ -5,7 +5,6 @@ $quantity = addslashes(strip_tags($_POST['quantity']));
 $id_user= addslashes(strip_tags($_POST['name']));
 	$query_update = "UPDATE asset SET quantity = quantity - $quantity WHERE id = $id_asset";
 	$query = "INSERT INTO get VALUES('', '$id_asset', '$quantity', '$id_user', now())";
-	echo $query;
 	if (!$link) {
    		die('Could not connect: ' . mysql_error());
 	}else{

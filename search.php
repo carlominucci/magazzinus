@@ -42,12 +42,11 @@
             {
                 $sql .= " AND ";
             }
-            $sql .= "('descr' LIKE '%" . $arr_txt[$i] . "%' OR cod LIKE '%" . $arr_txt[$i] . "%')";
+            $sql .= "(descr LIKE '%" . $arr_txt[$i] . "%' OR cod LIKE '%" . $arr_txt[$i] . "%')";
         }
 	$sql .= " ORDER BY id DESC";
-	echo $sql;
         $query = mysql_query($sql, $link);
-		//echo $sql;
+	//echo $sql;
         $quanti = mysql_num_rows($query);
 		//echo $quanti;
         if($quanti == 0){
@@ -57,19 +56,24 @@
 			<table class="tabella">
 				<tr>
 					<th>Cod/Inv</th>
-					<th>Computer</th>
+					<th>Descrizione</th>
 					<th>Ubicazione</th>
-					<th>Problema Riscontrato</th>
-					<th>Data Chiusura</th>
-					<th>Soluzione</th>
-					<th>Tecnico chiusura</th>
+					<th>Quantità</th>
+					<th>Ultimo movimento</th>
+					<th> &nbsp;</th>
 				</tr>
 			<?php
             for($x=0; $x<$quanti; $x++)
             {
                 $rs = mysql_fetch_row($query);
 				$id=$rs[7];
-				echo "<tr><td>$rs[10]</td><td>$rs[1]</td><td>$rs[2]</td><td>$rs[3]</td><td>$rs[8]</td><td>$rs[6]</td><td>$arr_tecnici[$id]</td></tr>";
+				echo "<tr><td>$rs[1]</td><td>$rs[2]</td><td>$rs[3]</td><td>$rs[4]</td><td>$rs[6]</td>";
+				echo "<td>      <a href=\"del.php?id=$row[0]\"><img src=\"img/del_small.png\" alt=\"scarica\" /></a>
+                                <a href=\"add.php?id=$row[0]\"><img src=\"img/add_small.png\" alt=\"carica\" /></a>";
+		                if($rs[4] < 5){
+                		        echo "<img src=\"img/warning.png\" alt=\"warning\" />";
+                		}	
+				echo "</tr>";
             }
             echo "</table>";
         }
