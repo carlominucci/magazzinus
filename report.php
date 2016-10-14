@@ -53,9 +53,7 @@ if($_POST['filtro'] == "" || $_POST['filtro'] == "tutti"){
                                         <tr>
 						<th>Cod/Inv</th>
                                                 <th>Descrizione</th>
-                                                <th>Ubicazione</th>
                                                 <th>Quantità</th>
-                                                <th>Unità di misura</th>
                                                 <th>Ultimo movimento</th>
                                         </tr>
         <?php
@@ -73,7 +71,7 @@ if($_POST['filtro'] == "" || $_POST['filtro'] == "tutti"){
                         	$resultuser=mysql_query($queryuser);
                         	$user=mysql_fetch_array($resultuser);
                                 echo "<tr>\n";
-                                echo "<td>$row[1]</td><td>" . stripslashes($row[2]) . "</td><td>" . stripslashes($row[3]) . "</td><td>$row[4]</td><td>$row[5]</td><td>$row[6]</td><td>\n";
+                                echo "<td>$row[1]</td><td>" . stripslashes($row[2]) . "</td><td>" . stripslashes($row[3]) . "</td><td>$row[4]</td>\n";
                                 ?>
                                 <?php
                                 echo "</tr>\n";
