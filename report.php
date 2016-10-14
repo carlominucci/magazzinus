@@ -51,6 +51,7 @@ if($_POST['filtro'] == "" || $_POST['filtro'] == "tutti"){
                         <p>
                                 <table class="tabella">
                                         <tr>
+						<th>Nominativo</th>
 						<th>Cod/Inv</th>
                                                 <th>Descrizione</th>
                                                 <th>Quantità</th>
@@ -60,7 +61,8 @@ if($_POST['filtro'] == "" || $_POST['filtro'] == "tutti"){
                 if (!$link) {
                         die('Could not connect: ' . mysql_error());
                 }else{
-                        $query="SELECT * FROM get ORDER BY date DESC";
+                        //$query="SELECT * FROM get ORDER BY date DESC";
+			$query="SELECT user.name, asset.cod, asset.descr, get.quantity, get.date FROM get, user, asset WHERE get.id_asset = asset.id AND get.id_user = user.id ORDER BY get.date";
                         $result = mysql_query($query);
                         echo "<br /><hr />Numero totale di movimenti <b>: " . mysql_affected_rows() . "</b><br /><br />\n";
 			if (!$result) {
@@ -71,7 +73,7 @@ if($_POST['filtro'] == "" || $_POST['filtro'] == "tutti"){
                         	$resultuser=mysql_query($queryuser);
                         	$user=mysql_fetch_array($resultuser);
                                 echo "<tr>\n";
-                                echo "<td>$row[1]</td><td>" . stripslashes($row[2]) . "</td><td>" . stripslashes($row[3]) . "</td><td>$row[4]</td>\n";
+                                echo "<td>$row[0]</td><td>" . stripslashes($row[1]) . "</td><td>" . stripslashes($row[2]) . "</td><td>$row[3]</td><td>" . stripslashes($row[4]) . "</td>\n";
                                 ?>
                                 <?php
                                 echo "</tr>\n";
