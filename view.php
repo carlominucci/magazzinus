@@ -26,7 +26,14 @@ if (!$link){
 		echo "<tr>\n";
 		echo "<td>" . $row[1] . "</td><td>" . $row[2] . "</td><td>" . $row[3] . "</td><td>" . $row[4];
 		echo "</td><td>" . $row[5] . "</td><td>" . $row[6] . "</td>\n";
-		echo "<td>	<a href=\"del.php?id=$row[0]\"><img src=\"img/del_small.png\" alt=\"scarica\" /></a>
+		echo "<td ";
+		if($row[4] < 5 && $row[4] > 0){
+			echo "style=\"background-color: #FB8C00\"";
+		}
+		if($row[4] <= 0){
+			echo "style=\"background-color: #FF3D00\"";
+		}
+		echo "><a href=\"del.php?id=$row[0]\"><img src=\"img/del_small.png\" alt=\"scarica\" /></a>
 				<a href=\"add.php?id=$row[0]\"><img src=\"img/add_small.png\" alt=\"carica\" /></a>";
 		if($row[4] < 5){
                         echo "<img src=\"img/warning.png\" alt=\"warning\" />";
