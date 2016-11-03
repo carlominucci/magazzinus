@@ -4,20 +4,23 @@ $debug=0;
 <table class="tabella">
 					<tr>
 						<th>Codice</th>
-						<th>Descrizione</th>
-						<th>Ubicazione</th>
-						<th>Quantità</th>
+						<th><a href="?order=descr">Descrizione</a></th>
+						<th><a href="?order=unit">Ubicazione</a></th>
+						<th><a href="?order=quantity">Quantità</a></th>
 						<th>Unità di misura</th>
-						<th>Ultimo movimento</th>
+						<th><a href="?order=date">Ultimo movimento</a></th>
 						<th>&nbsp;</th>
 					</tr>
 
 <?php
-$query="SELECT * FROM asset ORDER BY id";
+if(isset($_GET[order])){
+	$query="SELECT * FROM asset ORDER BY " . $_GET[order];
+}else{
+	$query="SELECT * FROM asset ORDER BY descr";
+}
 if (!$link){
 	die('Could not connect: ' . mysql_error());
 }else{
-	$query="SELECT * FROM asset ORDER BY descr";
 	$result = mysql_query($query);
 	if (!$result) {
    			die('Invalid query: ' . mysql_error());
@@ -28,7 +31,7 @@ if (!$link){
 		echo "</td><td>" . $row[5] . "</td><td>" . $row[6] . "</td>\n";
 		echo "<td ";
 		if($row[4] < 5 && $row[4] > 0){
-			echo "style=\"background-color: #FB8C00\"";
+			echo "style=\"background-color: #FFEB3B\"";
 		}
 		if($row[4] <= 0){
 			echo "style=\"background-color: #FF3D00\"";
