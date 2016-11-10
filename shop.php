@@ -32,6 +32,9 @@ if(file_exists("config.php")){
 					</tr>
 
 <?php
+if($_GET[del] == all){
+	$query = "DELETE FROM shop WHERE 1";
+}
 $query="SELECT asset.descr, asset.quantity FROM asset,shop WHERE asset.id = shop.id_asset ";
 if (!$link){
 	die('Could not connect: ' . mysql_error());
@@ -52,7 +55,7 @@ mysql_close($link);
 </table>
 <p>
 <input type="image" src="img/print.png" alt="Submit Form" />
-<a href="shop.php?=del"><img src="img/delete.png" alt="Cancella Ordine" /></a>
+<a href="shop.php?del=all"><img src="img/delete.png" alt="Cancella Ordine" /></a>
 </form>
 </p>
 </body>
