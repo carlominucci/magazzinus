@@ -14,6 +14,11 @@
 		<img src="img/search.png" alt="Ricerca" />
 	</a>
 </acronym>
+<acronym title="Ricerca">
+        <a href="shop.php" >
+                <img src="img/shopping_list.png" alt="Ordina" />
+        </a>
+</acronym>
 <acronym title="Movimenti">
 	<a href="report.php" >
 		<img src="img/view.png" alt="movimenti" />
