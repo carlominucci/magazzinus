@@ -29,13 +29,16 @@ if(file_exists("config.php")){
 					<tr>
 						<th>Descrizione</th>
 						<th>Quantità</th>
+						<th>Unità di misura</th>
 					</tr>
 
 <?php
 if($_GET[del] == all){
 	$query = "DELETE FROM shop WHERE 1";
+	
+}else{
+	$query="SELECT asset.descr, asset.quantity, asset.unit FROM asset,shop WHERE asset.id = shop.id_asset ORDER BY asset.descr";
 }
-$query="SELECT asset.descr, asset.quantity FROM asset,shop WHERE asset.id = shop.id_asset ";
 if (!$link){
 	die('Could not connect: ' . mysql_error());
 }else{
@@ -46,7 +49,7 @@ if (!$link){
 	$i=0;
 	while ($row = mysql_fetch_array($result, MYSQL_NUM)){
 		echo "<tr>\n";
-		echo "<td>" . $row[0] . "</td><td><input name=\"" . $row[0] . "\" type=\"text\" size=\"2\" />";
+		echo "<td>" . $row[0] . "</td><td><input name=\"" . $row[0] . "\" type=\"text\" size=\"2\" /></td><td>" . $row[2];
 		echo "</td></tr>\n";
 	}
 }
