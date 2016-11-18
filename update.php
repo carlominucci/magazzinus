@@ -11,7 +11,7 @@ if(isset($_POST['descr']) && isset($_POST['loc']) && isset($_POST['quantity']) &
 	$result=mysql_query($query);
 	$n = mysql_result($result, 0);
 	$quantity = $n + $quantity;
-	$query="UPDATE asset SET cod = '$cod', descr = '$descr', loc = '$loc', quantity = '$quantity', unit = '$unit' WHERE id = '$id'";
+	$query="UPDATE asset SET cod = '$cod', descr = '$descr', loc = '$loc', quantity = '$quantity', unit = '$unit', date = now() WHERE id = '$id'";
 	if (!$link) {
    		die('Could not connect: ' . mysql_error());
 	}else{
