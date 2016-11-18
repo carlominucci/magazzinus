@@ -34,8 +34,9 @@ if(file_exists("config.php")){
 <?php
 if($_GET[del] == all){
 	$query = "DELETE FROM shop WHERE 1";
+}else{
+	$query="SELECT asset.descr, asset.quantity FROM asset,shop WHERE asset.id = shop.id_asset ";
 }
-$query="SELECT asset.descr, asset.quantity FROM asset,shop WHERE asset.id = shop.id_asset ";
 if (!$link){
 	die('Could not connect: ' . mysql_error());
 }else{
