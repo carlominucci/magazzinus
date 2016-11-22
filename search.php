@@ -65,14 +65,19 @@
 			<?php
             for($x=0; $x<$quanti; $x++)
             {
-                $rs = mysql_fetch_row($query);
+                $row = mysql_fetch_row($query);
 				$id=$rs[7];
-				echo "<tr><td>$rs[1]</td><td>$rs[2]</td><td>$rs[3]</td><td>$rs[4]</td><td>$rs[6]</td>";
-				echo "<td>      <a href=\"del.php?id=$rs[0]\"><img src=\"img/del_small.png\" alt=\"scarica\" /></a>
+				echo "<tr><td>$row[1]</td><td>$row[2]</td><td>$row[3]</td><td>$row[4]</td><td>$row[6]</td>";
+				echo "<td ";
+				if($row[4] < 5 && $row[4] > 0){
+					echo "style=\"background-color: #FFEB3B\"";
+				}
+				if($row[4] <= 0){
+					echo "style=\"background-color: #FF3D00\"";
+				}
+				echo "><a href=\"del.php?id=$row[0]\"><img src=\"img/del_small.png\" alt=\"scarica\" /></a>
                                 <a href=\"add.php?id=$row[0]\"><img src=\"img/add_small.png\" alt=\"carica\" /></a>";
-		                if($rs[4] < 5){
-                		        echo "<img src=\"img/warning.png\" alt=\"warning\" />";
-                		}	
+				echo "<a href=\"addshop.php?id=$row[0]\"><img src=\"img/shopping.png\" alt=\"ordina\" /></a>";
 				echo "</tr>";
             }
             echo "</table>";

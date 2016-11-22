@@ -38,9 +38,6 @@ if (!$link){
 		}
 		echo "><a href=\"del.php?id=$row[0]\"><img src=\"img/del_small.png\" alt=\"scarica\" /></a>
 			<a href=\"add.php?id=$row[0]\"><img src=\"img/add_small.png\" alt=\"carica\" /></a>";
-		if($row[4] < 5){
-                        echo "<img src=\"img/warning.png\" alt=\"warning\" />";
-                }
 		if($debug == 1){
 			echo "<a href=\"remove.php?id=$row[0]\"><img src=\"img/remove.png\" alt=\"elimina voce definitivamente\" </a>\n";
 		}
