@@ -62,7 +62,7 @@ if($_POST['filtro'] == "" || $_POST['filtro'] == "tutti"){
                         die('Could not connect: ' . mysql_error());
                 }else{
                         //$query="SELECT * FROM get ORDER BY date DESC";
-			$query="SELECT user.name, asset.cod, asset.descr, get.quantity, get.date FROM get, user, asset WHERE get.id_asset = asset.id AND get.id_user = user.id ORDER BY get.date";
+			$query="SELECT user.name, asset.cod, asset.descr, get.quantity, get.date FROM get, user, asset WHERE get.id_asset = asset.id AND get.id_user = user.id ORDER BY get.date DESC";
                         $result = mysql_query($query);
                         echo "<br /><hr />Numero totale di movimenti <b>: " . mysql_affected_rows() . "</b><br /><br />\n";
 			if (!$result) {
