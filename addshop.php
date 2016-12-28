@@ -17,7 +17,7 @@ $id_asset = addslashes(strip_tags($_GET['id']));
 <html lang="it"> 
 	<head> 
 		<meta charset=utf-8> 
-		<meta HTTP-EQUIV="Refresh" content="<?php echo rand(1,5); ?>; url=index.php">
+		<meta HTTP-EQUIV="Refresh" content="<?php echo rand(1,3); ?>; url=<?php echo $_SERVER['HTTP_REFERER']; ?>">
 		<title><?php echo $title; ?></title></head>
 		<link rel="stylesheet" type="text/css" media="screen" href="style.css" />
 	</head>
